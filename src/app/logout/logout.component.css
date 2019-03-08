@@ -1,0 +1,33 @@
+.log{
+  margin-left: 15%;
+  margin-top: 30px;
+}
+.topnav {
+  background-color: rgb(39, 39, 41);
+  overflow: hidden;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.button {
+  background-color: rgb(107, 196, 248);
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+h2{
+  color: rgb(221, 28, 163)
+}

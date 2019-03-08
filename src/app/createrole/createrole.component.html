@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+        <app-dashboard></app-dashboard>
+  <div class="container">
+
+<br>
+<div class="App-Create col-xs-4">
+
+    <form (submit)="save()">
+
+        <div class="form-group">
+            <label for="RoleId">RoleId</label>
+            <input type="text" name="RoleId" class="form-control"
+             [(ngModel)]="role.RoleId"
+            />
+            </div>
+        <div class="form-group">
+               <label for="RoleName">Role Name</label>
+               <input type="text" name="RoleName" class="form-control" [(ngModel)]="role.RoleName"
+                 id="RoleName">
+       </div>
+        <div class="form-group">
+                   <label for="RoleStatus">Role Status</label>
+                   <input type="text" name="RoleStatus" class="form-control" id="RoleStatus"
+                   [(ngModel)]="role.RoleStatus" >
+       </div>
+       <div class="form-group">
+           <input type="button" value="Cancel" class="btn btn-default"
+           (click)="clear()">&nbsp;
+               <input type="submit" value="Create Role" class="btn btn-success">
+           </div>
+
+       </form>
+      </div>
+      <div class="container">
+        <br>
+          <table class="table table-bordered table-striped">
+              <thead>
+                      <tr>
+                          <td *ngFor="let p of tableHeaders">{{p}}</td>
+                      </tr>
+              </thead>
+
+              <tbody>
+                  <tr *ngFor="let p of roles" >
+                    <td *ngFor="let c of tableHeaders">{{ p[c] }}</td>
+                  </tr>
+                </tbody>
+
+          </table>
+      </div>
+       </div>
+</body>
+</html>

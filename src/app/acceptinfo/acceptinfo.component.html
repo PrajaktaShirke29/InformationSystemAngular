@@ -1,0 +1,51 @@
+<app-dashboard></app-dashboard>
+<div class="container" >
+    <h2>Accept Information Request</h2>
+  <br>
+    <table class="table table-bordered table-striped " id="customers">
+        <thead>
+                <tr>
+                  <td>Id</td>
+                  <td>Name</td>
+                  <td>PhoneNo</td>
+                  <td>EmailAddr</td>
+                  <td>City</td>
+                  <td>Action</td>
+                </tr>
+        </thead>
+
+        <tbody >
+          <tr *ngFor="let c of persons">
+            <td>{{c.PersonalUniqueId}}</td>
+            <td>{{c.FullName.FirstName}} {{c.FullName.MiddleName}} {{c.FullName.LastName}}</td>
+            <td>{{c.PhoneNo}}</td>
+            <td>{{c.EmailAddr}}</td>
+            <td>{{c.City}}</td>
+            <td><input type="button" class="btn btn-success btn-bordered" value="Accept" (click)="acceptInfo(c)">&nbsp;&nbsp;
+              <input type="button" class="btn btn-danger btn-bordered" value="Reject" (click)="reject(c.EmailAddr)"></td>
+          </tr>
+          </tbody>
+
+    </table>
+</div>
+
+<div class="container">
+  <h2>Accept User Request</h2>
+  <br>
+    <table class="table table-bordered table-striped" id="customers">
+        <thead>
+                <tr>
+                    <td *ngFor="let p of tableHead">{{p}}</td>
+                    <td>Action</td>
+                </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let u of users" >
+              <td *ngFor="let c of tableHead">{{ u[c] }}</td>
+              <td><input type="button" class="btn btn-success btn-bordered" value="Accept" (click)="accept(u)">
+            </tr>
+          </tbody>
+
+    </table>
+</div>

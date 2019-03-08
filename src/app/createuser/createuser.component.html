@@ -1,0 +1,94 @@
+<div [hidden]='isHidden'>
+<app-dashboard></app-dashboard>
+<div class="App-Create col-xs-4">
+
+    <form [formGroup]="createForm" (submit)="save()">
+      <h2>Create User</h2>
+        <div class="form-group">
+            <label for="Username">Username</label>
+            <input type="text" name="Username" formControlName="Username"
+             [(ngModel)]="user.Username" class="form-control"
+            />
+            <div
+                *ngIf="
+                  f.Username.dirty &&
+                  !f.Username.valid"
+                class="alert alert-danger"
+              >
+              <p *ngIf="f.Username.errors.required">
+                  Username is Must
+                </p>
+            </div>
+            </div>
+        <div class="form-group">
+               <label for="EmailAddr">Email Address</label>
+               <input type="text" name="EmailAddr" formControlName="EmailAddr" [(ngModel)]="user.EmailAddr"
+                 id="EmailAddr" class="form-control">
+                 <div
+                 *ngIf="
+                   f.EmailAddr.dirty &&
+                   !f.Username.valid"
+                 class="alert alert-danger"
+               >
+               <p *ngIf="f.EmailAddr.errors.required">
+                  Email Address is Must
+                 </p>
+                 <p *ngIf="f.EmailAddr.errors.pattern">
+                  Enter full Email Address 
+                 </p>
+             </div>
+       </div>
+        <div class="form-group">
+                   <label for="Password">Password</label>
+                   <input type="text" name="Password" formControlName="Password" id="Password"
+                   [(ngModel)]="user.Password" class="form-control">
+                   <div
+                   *ngIf="
+                     f.Password.dirty &&
+                     !f.Password.valid"
+                   class="alert alert-danger"
+                 >
+                 <p *ngIf="f.Password.errors.required">
+                    Password is Must
+                   </p>
+               </div>
+       </div>
+       <div class="form-group">
+          <label for="ConfirmPassword">Confirm Password</label>
+          <input type="text" name="ConfirmPassword" formControlName="ConfirmPassword" id="ConfirmPassword"
+          class="form-control">
+              <div
+              *ngIf="
+                f.ConfirmPassword.dirty &&
+                !f.ConfirmPassword.valid"
+              class="alert alert-danger"
+            >
+            <p *ngIf="f.ConfirmPassword.errors.required">
+                ConfirmPassword is Must
+              </p>
+          </div>
+       </div>
+       <div class="form-group">
+          <label for="RoleId">RoleId</label>
+          <input type="text" name="RoleId" formControlName="RoleId" id="RoleId" class="form-control"
+          [(ngModel)]="user.RoleId"  >
+          <div
+          *ngIf="
+            f.RoleId.dirty &&
+            !f.Password.valid"
+          class="alert alert-danger"
+        >
+        <p *ngIf="f.RoleId.errors.required">
+            RoleId is Must
+          </p></div>
+      </div>
+       <div class="form-group">
+           <input type="button" value="Cancel" class="btn btn-default"
+           (click)="clear()">&nbsp;
+               <input type="submit" value="Next"  [disabled]="!createForm.valid" class="btn btn-success">
+           </div>
+
+       </form>
+</div>
+
+

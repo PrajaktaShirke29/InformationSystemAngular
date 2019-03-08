@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <!-- operator -->
+    <div class="topnav" [hidden]="!isOperator" >
+        
+        <a class="active">Personal Information System</a>
+        <a  [routerLink]='["/createuser"]'>Create User</a>
+        <a [routerLink]='["/viewinfo"]'>Update Information</a>
+       <span ></span>
+       <a style="float: right; margin-right: 10px;" [routerLink]='["/logout"]'>Logout</a>
+          <a style="float: right; font-size: 15px;">Welcome {{user}} As Operator</a>
+      </div>
+
+      <!-- Admin -->
+      <div class="topnav" [hidden]="!isAdmin">
+          <a class="active">Personal Information System</a>
+          <a [routerLink]='["/createrole"]'>Create Role</a>
+          <a [routerLink]='["/acceptinfo"]'>Accept Information</a>
+          <a [routerLink]='["/viewinfo"]'>View Information</a>
+          <a [routerLink]='["/updaterole"]'>Update Role</a>
+          <a style="float: right; margin-right: 10px;" [routerLink]='["/logout"]'>Logout</a>
+          <a style="float: right; font-size: 15px;">Welcome {{user}} As Admin</a>
+        </div>
+
+
+      <!-- UserAccess -->
+      <div class="topnav" [hidden]="!isUserAccess" >
+          <a class="active">Personal Information System</a>
+          <a [routerLink]='["/updateinfo"]'>View Information</a>
+          <a style="float: right; margin-right: 10px;" [routerLink]='["/logout"]'>Logout</a>
+          <a style="float: right; font-size: 15px;">Welcome {{user}} As UserAccess</a>
+        </div>
+
+</body>
+</html>

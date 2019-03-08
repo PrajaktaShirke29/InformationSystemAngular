@@ -1,0 +1,41 @@
+<app-dashboard></app-dashboard>
+<div class="container">
+   
+  <h2>Update Information</h2>
+  <br>
+  <div class="col-xs-4" style="float: right;">
+      <input type="text"
+      class=" form-control" 
+     name="Search"
+     [(ngModel)] = "SearchInfo"
+     placeholder="Search..."
+     />
+     <br />
+  </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+                <tr>
+                    <td>PersonalId</td>
+                  <td>Name</td>
+                  <td>PhoneNo</td>
+                  <td>Gender</td>
+                  <td>EmailAddr</td>
+                  <td>Address</td>
+                  <td>Action</td>
+                </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let c of persons | search : SearchInfo" >
+              <td>{{c.PersonalUniqueId}}</td>
+            <td>{{c.FullName.FirstName}} {{c.FullName.MiddleName}} {{c.FullName.LastName}}</td>
+            <td>{{c.PhoneNo}}</td>
+            <td>{{c.Gender}}</td>
+            <td>{{c.EmailAddr}}</td>
+            <td>{{c.Address.FlatNo}}, {{c.Address.SocietyName}}, {{c.Address.AreaName}}, {{c.City}}, {{c.State}} {{c.Pincode}}</td>
+            <td><input type="button" class="btn btn-info btn-bordered" value="More Info" (click)="view(c.EmailAddr)"></td>
+          </tr>
+          </tbody>
+
+    </table>
+</div>

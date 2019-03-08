@@ -1,0 +1,385 @@
+
+<app-dashboard></app-dashboard>
+<div class="container">
+    <h1><b><i>The information of the user</i></b></h1>
+    <button  class="btn btn-default btn-block btn-md" (click)="edit()">Edit</button>
+<br>
+<form [formGroup]="updateForm" class=" col-xs-4">
+      <label htmlFor="FullName">Full Name</label>
+               <div class="container">
+                   <div class="form-group  col-xs-4">
+                       <label htmlFor="FirstName">First Name</label>
+
+                       <input type="text"
+                        class="form-control"
+                       name="FirstName"
+                       [disabled]="!isDisabled"
+                       [(ngModel)] = "person.FullName.FirstName"
+                       formControlName="FirstName"
+                       />
+                       <div
+                       *ngIf="
+                         f.FirstName.dirty &&
+                         !f.FirstName.valid"
+                       class="alert alert-danger"
+                     >
+                     <p *ngIf="f.FirstName.errors.required">
+                            FirstName is Must
+                       </p>
+                   </div>
+                   </div>
+                   <div class="form-group  col-xs-4">
+                       <label htmlFor="MiddleName">Middle Name</label>
+                       <input type="text" class="form-control"
+                           name="MiddleName"
+                           [disabled]="!isDisabled"
+                           [(ngModel)] = "person.FullName.MiddleName"
+                           formControlName="MiddleName"
+                       />
+                       <div
+                       *ngIf="
+                         f.MiddleName.dirty &&
+                         !f.MiddleName.valid"
+                       class="alert alert-danger"
+                     >
+                     <p *ngIf="f.MiddleName.errors.required">
+                            MiddleName is Must
+                       </p>
+                   </div>
+                   </div>
+                   <div class="form-group  col-xs-4">
+                       <label htmlFor="LastName">Last Name</label>
+                       <input type="text" class="form-control"
+                       name="LastName" [disabled]="!isDisabled"
+                       [(ngModel)] = "person.FullName.LastName"
+                       formControlName="LastName"
+                       />
+                   </div>
+                   <div
+                   *ngIf="
+                     f.LastName.dirty &&
+                     !f.LastName.valid"
+                   class="alert alert-danger"
+                 >
+                 <p *ngIf="f.LastName.errors.required">
+                        LastName is Must
+                   </p>
+               </div>
+               </div>
+
+
+    <div class="container">
+
+        <div class="form-group col-xs-4"  >
+            <label htmlFor="Gender">Gender</label><br>
+                 <label class="radio-inline">
+                    <input type="radio" name="Gender" value="Male" [disabled]="!isDisabled" [(ngModel)] = "person.Gender"
+                    formControlName="Gender">Male
+                  </label>
+
+                  <label class="radio-inline">
+                      <input type="radio" name="Gender" value="Female" [disabled]="!isDisabled" [(ngModel)] = "person.Gender"
+                      formControlName="Gender">Female
+                    </label>
+
+                  <label class="radio-inline">
+                      <input type="radio" name="Gender" value= "ThirdGender" [disabled]="!isDisabled" [(ngModel)] = "person.Gender"
+                      formControlName="Gender">Third Gender
+                    </label>
+                    <div
+                    *ngIf="
+                      f.Gender.dirty &&
+                      !f.Gender.valid"
+                    class="alert alert-danger"
+                  >
+                  <p *ngIf="f.Gender.errors.required">
+                        Gender is Must
+                    </p>
+                </div>
+              </div>
+    <div class="form-group col-xs-4" >
+             <label htmlFor="Dob">Date of birth</label>
+
+              <input type="date" class="form-control"
+              name="Dob"  [(ngModel)] = "person.Dob"
+              [disabled]="!isDisabled" formControlName="Dob"
+              /> <div
+              *ngIf="
+                f.Dob.dirty &&
+                !f.Dob.valid"
+              class="alert alert-danger"
+            >
+            <p *ngIf="f.Dob.errors.required">
+                    Dob is Must
+              </p>
+          </div>
+          </div>
+          <div class="form-group col-xs-4" >
+              <label htmlFor="Age">Age</label>
+              <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)] = "person.Age"
+                  [disabled]="!isDisabled"
+                   name="Age" formControlName="Age"/>
+                   <div
+                   *ngIf="
+                     f.Age.dirty &&
+                     !f.Age.valid"
+                   class="alert alert-danger"
+                 >
+                 <p *ngIf="f.Age.errors.required">
+                        Age is Must
+                   </p>
+               </div>
+          </div>
+        </div>
+          <br/>
+          <label htmlFor="Address">Address</label>
+               <div class="container">
+                   <div class="form-group  col-xs-4">
+                       <label htmlFor="FlatNo">Flat No</label>
+                       <input type="text" class="form-control"
+                       name="FlatNo"  [(ngModel)] = "person.Address.FlatNo"
+                       [disabled]="!isDisabled" formControlName="FlatNo"
+                       />
+                       <div
+                       *ngIf="
+                         f.FlatNo.dirty &&
+                         !f.FlatNo.valid"
+                       class="alert alert-danger"
+                     >
+                     <p *ngIf="f.FlatNo.errors.required">
+                            FlatNo is Must
+                       </p>
+                   </div>
+                   </div>
+                   <div class="form-group  col-xs-4">
+                       <label htmlFor="FlatNo">Society Name</label>
+                       <input type="text" class="form-control"
+                           name="SocietyName"  [(ngModel)] = "person.Address.SocietyName"
+                           [disabled]="!isDisabled" formControlName="SocietyName"
+                       />
+                       <div
+                       *ngIf="
+                         f.FlatNo.dirty &&
+                         !f.FlatNo.valid"
+                       class="alert alert-danger"
+                     >
+                     <p *ngIf="f.FlatNo.errors.required">
+                            FlatNo is Must
+                       </p>
+                   </div>
+                   </div>
+                   <div class="form-group  col-xs-4">
+                       <label htmlFor="AreaName">Area Name</label>
+                       <input type="text" class="form-control"
+                       name="AreaName"  [(ngModel)] = "person.Address.AreaName"
+                       [disabled]="!isDisabled" formControlName="AreaName"
+                       />
+                       <div
+                       *ngIf="
+                         f.AreaName.dirty &&
+                         !f.AreaName.valid"
+                       class="alert alert-danger"
+                     >
+                     <p *ngIf="f.AreaName.errors.required">
+                            AreaName is Must
+                       </p>
+                   </div>
+                   </div>
+                  </div>
+               <div class="container">
+                  <div class="form-group  col-xs-4">
+                      <label htmlFor="City">City</label>
+                   <input type="text" class="form-control" name="City"
+                   [disabled]="!isDisabled"
+                   [(ngModel)] = "person.City" formControlName="City"
+                   /> <div
+                   *ngIf="
+                     f.City.dirty &&
+                     !f.City.valid"
+                   class="alert alert-danger"
+                 >
+                 <p *ngIf="f.City.errors.required">
+                        City is Must
+                   </p>
+               </div>
+                  </div>
+                  <div class="form-group  col-xs-4">
+                      <label htmlFor="State">State</label>
+                      <div class="Dropdown-text">
+                      <select class="form-control" [(ngModel)] = "person.State"
+                       name="State" formControlName="State"
+                       [disabled]="!isDisabled" >
+                       <option *ngFor="let d of state" [value]="d">{{ d }}</option>
+                          </select>
+                          </div>
+                          <div
+                          *ngIf="
+                            f.State.dirty &&
+                            !f.State.valid"
+                          class="alert alert-danger"
+                        >
+                        <p *ngIf="f.State.errors.required">
+                                State is Must
+                          </p>
+                      </div>
+                  </div>
+                  <div class="form-group  col-xs-4">
+                      <label htmlFor="Pincode">PinCode</label>
+                      <input type="text" class="form-control" name="Pincode"
+                      [(ngModel)] = "person.Pincode"
+                          minLength="3" formControlName="Pincode"
+                          maxLength="6"
+                          [disabled]="!isDisabled"
+
+                      />
+                      <div
+                      *ngIf="
+                        f.Pincode.dirty &&
+                        !f.Pincode.valid"
+                      class="alert alert-danger"
+                    >
+                    <p *ngIf="f.Pincode.errors.required">
+                            Pincode is Must
+                      </p>
+                  </div>
+                  </div>
+              </div>
+              <label htmlFor="Number">Personal Information</label>
+               <div class="container">
+                   <div class="form-group  col-xs-4">
+                       <label htmlFor="PhoneNo">Mobile Number</label>
+                       <input type="text" class="form-control" [(ngModel)] = "person.PhoneNo"
+                       minLength="10" formControlName="PhoneNo"
+                       maxLength= "10"             name="PhoneNo"
+                       [disabled]="!isDisabled"        />
+                       <div
+                       *ngIf="
+                         f.PhoneNo.dirty &&
+                         !f.PhoneNo.valid"
+                       class="alert alert-danger"
+                     >
+                     <p *ngIf="f.PhoneNo.errors.required">
+                            PhoneNo is Must
+                       </p>
+                   </div>
+                   </div>
+                   <div class="form-group  col-xs-4">
+                       <label htmlFor="Telephone">Telephone No</label>
+                       <input type="text" class="form-control"
+                       [(ngModel)] = "person.Telephone"
+                       name="Telephone"
+                       minLength="4"
+                       maxLength= "10"
+                       [disabled]="!isDisabled"         formControlName="Telephone"/>
+                       <div
+                       *ngIf="
+                         f.Telephone.dirty &&
+                         !f.Telephone.valid"
+                       class="alert alert-danger"
+                     >
+                     <p *ngIf="f.Telephone.errors.required">
+                            Telephone is Must
+                       </p>
+                   </div>
+                   </div>
+                   <div class="form-group  col-xs-4">
+                      <label htmlFor="EmailAddr">Email Address</label>
+                      <input type="text" class="form-control" [(ngModel)] = "person.EmailAddr"
+                      name="EmailAddr"
+                      disabled formControlName="EmailAddr"
+                             />
+                             <div
+                             *ngIf="
+                               f.EmailAddr.dirty &&
+                               !f.EmailAddr.valid"
+                             class="alert alert-danger"
+                           >
+                           <p *ngIf="f.EmailAddr.errors.required">
+                                EmailAddr is Must
+                             </p>
+                         </div>
+                  </div>
+
+              </div>
+              <div class="container">
+                <div class="form-group col-xs-4" >
+                  <label htmlFor="PhysicalDisability">PhysicalDisability</label><br>
+                       <label class="radio-inline">
+                          <input type="radio" name="PhysicalDisability" value= 'Yes'
+                          [(ngModel)] = "person.PhysicalDisability"  [disabled]="!isDisabled" formControlName="PhysicalDisability">YES
+                        </label>
+
+                        <label class="radio-inline">
+                            <input type="radio" name="PhysicalDisability" value= 'No'
+                            [(ngModel)] = "person.PhysicalDisability" [disabled]="!isDisabled"  formControlName="PhysicalDisability"checked>NO
+                          </label>
+                              <div
+                              *ngIf="
+                                f.PhysicalDisability.dirty &&
+                                !f.PhysicalDisability.valid"
+                              class="alert alert-danger"
+                            >
+                            <p *ngIf="f.PhysicalDisability.errors.required">
+                                    PhysicalDisability is Must
+                              </p>
+                          </div>
+                        </div>
+
+                  <div class="form-group  col-xs-4">
+                      <label htmlFor="EducationStatus">EducationStatus</label>
+                      <input type="text" class="form-control"
+                      [disabled]="!isDisabled"
+                      [(ngModel)] = "person.EducationStatus"
+                      name="EducationStatus"
+                      minLength="4"
+                      maxLength= "10"  formControlName="EducationStatus"        />
+                      <div
+                      *ngIf="
+                        f.EducationStatus.dirty &&
+                        !f.EducationStatus.valid"
+                      class="alert alert-danger"
+                    >
+                    <p *ngIf="f.EducationStatus.errors.required">
+                            EducationStatus is Must
+                      </p>
+                  </div>
+                  </div>
+                        <div class="form-group col-xs-4" >
+                            <label htmlFor="BirthSign">BirthSign</label><br>
+                                 <label class="radio-inline">
+                                    <input type="radio" name="BirthSign" value= 'Yes'
+                                    [(ngModel)] = "person.BirthSign"  [disabled]="!isDisabled" formControlName="BirthSign">YES
+                                  </label>
+
+                                  <label class="radio-inline">
+                                      <input type="radio" name="BirthSign" value= 'No'
+                                      [(ngModel)] = "person.BirthSign" [disabled]="!isDisabled"  formControlName="BirthSign"checked>NO
+                                    </label>
+
+                              </div> <div
+                              *ngIf="
+                                f.BirthSign.dirty &&
+                                !f.BirthSign.valid"
+                              class="alert alert-danger"
+                            >
+                            <p *ngIf="f.BirthSign.errors.required">
+                                    BirthSign is Must
+                              </p>
+                          </div>
+
+              </div><br>
+              <div class="container">
+              <div class="form-group col-xs-6" >
+                  <button  class="btn btn-warning btn-block" [disabled]="!updateForm.valid" >Cancel</button>
+              </div>
+              <div class="form-group col-xs-6" >
+                  <button  class="btn btn-success btn-block" [disabled]="!updateForm.valid" (click)="update()" >Save</button>
+              </div>
+            </div>
+
+</form>
+<br><br>
+</div>

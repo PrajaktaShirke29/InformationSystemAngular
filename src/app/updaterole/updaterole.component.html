@@ -1,0 +1,52 @@
+
+<app-dashboard></app-dashboard>
+<div class="App-Create col-xs-4">
+
+    <form (submit)="save()">
+        <h2>Update Role</h2>
+        <div class="form-group">
+            <label for="UserName">UserName</label>
+            <input type="text" name="UserName" class="form-control" disabled
+             [(ngModel)]="user.Username"
+            />
+            </div>
+        <div class="form-group">
+               <label for="EmailAddr">EmailAddr</label>
+               <input type="text" name="EmailAddr" class="form-control" [(ngModel)]="user.EmailAddr"
+                 id="EmailAddr" disabled>
+       </div>
+        <div class="form-group">
+                   <label for="Password">Password</label>
+                   <input type="text" name="Password" class="form-control" id="Password"
+                   [(ngModel)]="user.Password" disabled >
+       </div>
+       <div class="form-group">
+            <label for="RoleId">RoleId</label>
+            <input type="text" name="RoleId" class="form-control" id="RoleId"
+            [(ngModel)]="user.RoleId" >
+    </div>
+       <div class="form-group">
+           <input type="button" value="Cancel" class="btn btn-default"
+           (click)="clear()">&nbsp;
+               <input type="submit" value="Create Role" class="btn btn-success">
+           </div>
+
+       </form>
+      </div>
+      <div class="container">
+        <br>
+          <table class="table table-bordered table-striped">
+              <thead>
+                      <tr>
+                          <td *ngFor="let p of tableHeaders">{{p}}</td>
+                      </tr>
+              </thead>
+
+              <tbody>
+                  <tr *ngFor="let p of users" (click)="getselectedrow(p)" >
+                    <td *ngFor="let c of tableHeaders">{{ p[c] }}</td>
+                  </tr>
+                </tbody>
+
+          </table>
+      </div>
